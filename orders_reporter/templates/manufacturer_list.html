@@ -22,13 +22,21 @@
 </style>
 <table>
    <tr>
+<<<<<<< HEAD
                <th>Order</th>
+=======
+               <th>Manufacturer</th>
+>>>>>>> 5aba71bbc6b139b60dcc33661d0611782daf2da2
                <th>Date Created</th>
                <th>Location</th>
    </tr>
                <tr>
 {% for manufacturer in manufacturers %}
+<<<<<<< HEAD
                 <td><a href="{% url 'manufacturer_detail' manufacturer.pk %}">{{ manufacturer.order_number }}</a></td>
+=======
+                <td><a href="{% url 'manufacturer_detail' manufacturer.pk %}">{{ manufacturer.vendor }}</a></td>
+>>>>>>> 5aba71bbc6b139b60dcc33661d0611782daf2da2
                 <td>{{ manufacturer.date_added|date:'M d,Y H:i' }}</td>
                 <td>{{ manufacturer.location }}</td>
                 </tr>

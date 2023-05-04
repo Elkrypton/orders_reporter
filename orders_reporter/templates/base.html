@@ -1,11 +1,17 @@
 {% csrf_token %}
 <!DOCTYPE html>
+<<<<<<< HEAD
 {% load bootstrap3 %}
 <html lang="en">
 <head>
 {% bootstrap_css %}
   <style>
 
+=======
+<html lang="en">
+<head>
+  <style>
+>>>>>>> 5aba71bbc6b139b60dcc33661d0611782daf2da2
   header img {
     height: 80px;
     margin-left: 40px;
@@ -59,6 +65,10 @@ header li a {
            <li><a class="active" href="{% url 'home' %}">Orders Report</a></li>
            <li><a href="{% url 'myforms' %}">Create Report</a></li>
            <li><a href="{% url 'manufacturer_list' %}">View Reports</a></li>
+<<<<<<< HEAD
+=======
+           <li><a href="{% url 'submitted_report' %}">Submitted Reports</a></li>
+>>>>>>> 5aba71bbc6b139b60dcc33661d0611782daf2da2
            {% if user.is_authenticated %}
            <li><a href="{% url 'logout' %}">Logout</a></li>
            {% else %}
@@ -73,5 +83,11 @@ header li a {
     {% endblock %}
   </div>
 
+<<<<<<< HEAD
 
+=======
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6
+>>>>>>> 5aba71bbc6b139b60dcc33661d0611782daf2da2
 </body>

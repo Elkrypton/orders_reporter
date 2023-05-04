@@ -10,11 +10,23 @@ from django.views import View
 from django.http import FileResponse
 import xhtml2pdf.pisa as pisa
 from .forms import ManufacturerForm
+<<<<<<< HEAD
 from .models import Manufacturer
+=======
+from .models import Manufacturer, SubmittedReport
+>>>>>>> 5aba71bbc6b139b60dcc33661d0611782daf2da2
 
 # Create your views here.{% for manufacturer in manufacturers %}
 
 
+<<<<<<< HEAD
+=======
+def submitted_reports(request):
+    submitted_report = SubmittedReport.objects.all()
+    return render(request, 'submitted_list.html', {'submitted_report':submitted_report})
+
+
+>>>>>>> 5aba71bbc6b139b60dcc33661d0611782daf2da2
 
 def generate_qr_code(data):
     qr = qrcode.QRCode(
@@ -127,3 +139,11 @@ def manufacturer_detail(request, pk):
     return render(request, "manufacturer_detail.html", {"manufacturer": manufacturer, "qr_code": qr_codes})
 
 
+<<<<<<< HEAD
+=======
+def report_detail(request,pk):
+
+    report = get_object_or_404(SubmittedReport, pk=pk)
+    qr_code = generate_qr_code("http://cryptoon.pythonanywhere.com/order_detail/{}".format(pk))
+    return render(request, 'submitted_report.html',{'report':report,"qr_code":qr_code})
+>>>>>>> 5aba71bbc6b139b60dcc33661d0611782daf2da2
