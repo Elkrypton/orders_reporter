@@ -10,6 +10,12 @@ class Manufacturer(models.Model):
     omsid = models.CharField(max_length=50)
     store_so_sku = models.CharField(max_length=50)
     parts_usage = models.CharField(max_length=50)
-    date_added = models.DateTimeField(auto_now_add=True)
+    date_added = models.DateTimeField(auto_now=True)
+    location = models.CharField(max_length=50)
 
 
+class SubmittedReport(models.Model):
+    parts = models.CharField(max_length=100)
+    order_date = models.DateField(max_length=100)
+    order_number = models.CharField(max_length=100)
+    date_added = models.DateTimeField(auto_now=True)

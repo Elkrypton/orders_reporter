@@ -8,10 +8,10 @@ urlpatterns = [
     path('', index, name='home'),
     path('myforms/', my_form_view, name='myforms'),
     path('list/',manufacturer_list, name='manufacturer_list'),
-    path('submitted/',submitted,name="submitted"),
+    path('submitted_report/', submitted_reports, name="submitted_report"),
     path('manufacturer/<int:pk>/pdf/', GeneratePDF.as_view(), name="manufacturer_pdf"),
     path('delete/<int:pk>', delete_manufacturer, name="delete"),
+    path('order_detail/<int:pk>/', report_detail, name="report_detail"),
     path('manufacturer/<int:pk>/', manufacturer_detail, name='manufacturer_detail'),
     path('edit_manufacturer/<int:pk>/', manufacturer_edit,name="edit" )
 ]
-#+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

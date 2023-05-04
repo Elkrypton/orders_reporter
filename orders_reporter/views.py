@@ -9,10 +9,17 @@ from django.template.loader import get_template
 from django.views import View
 from django.http import FileResponse
 import xhtml2pdf.pisa as pisa
-from .forms import ManufacturerForm 
-from .models import Manufacturer
+from .forms import ManufacturerForm
+from .models import Manufacturer, SubmittedReport
 
 # Create your views here.{% for manufacturer in manufacturers %}
+
+
+def submitted_reports(request):
+    submitted_report = SubmittedReport.objects.all()
+    return render(request, 'submitted_list.html', {'submitted_report':submitted_report})
+
+
 
 def generate_qr_code(data):
     qr = qrcode.QRCode(
@@ -30,18 +37,17 @@ def generate_qr_code(data):
     return base64.b64encode(buffer.getvalue()).decode()
 
 
-
 def manufacturer_edit(request, pk):
     manufacturer = Manufacturer.objects.get(pk=pk)
     if request.method != 'POST':
         form = ManufacturerForm(instance=manufacturer)
-    
+
     else:
         form = ManufacturerForm(instance=manufacturer,data=request.POST)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('manufacturer_list'))
-    
+
     context = {'manufacturer':manufacturer, 'form':form}
     return render(request,'manufacturer_edit.html', context)
 
@@ -51,7 +57,7 @@ class GeneratePDF(View):
         manufacturer = get_object_or_404(Manufacturer, pk=kwargs['pk'])
         context = {
             'manufacturer':manufacturer
-        }    
+        }
 
         pdf = render_to_pdf('manufacturer_detail.html', context)
         if pdf:
@@ -112,16 +118,13 @@ def delete_manufacturer(request, pk):
     return redirect(reverse('manufacturer_list'))
 
 
-def submitted(request):
-    return render(request, 'submitted.html')
-
 from django.shortcuts import render, get_object_or_404
 from .models import Manufacturer
 
 @login_required
 def manufacturer_detail(request, pk):
     manufacturer = get_object_or_404(Manufacturer, pk=pk)
-    qr_codes = generate_qr_code("http://172.16.224.120:8000/manufacturer/{}".format(pk))
+    qr_codes = generate_qr_code("http://cryptoon.pythonanywhere.com/manufacturer/{}".format(pk))
 
     #if manufacturer.owner != request.user:
         #raise Http404
@@ -129,3 +132,8 @@ def manufacturer_detail(request, pk):
     return render(request, "manufacturer_detail.html", {"manufacturer": manufacturer, "qr_code": qr_codes})
 
 
+def report_detail(request,pk):
+
+    report = get_object_or_404(SubmittedReport, pk=pk)
+    qr_code = generate_qr_code("http://cryptoon.pythonanywhere.com/order_detail/{}".format(pk))
+    return render(request, 'submitted_report.html',{'report':report,"qr_code":qr_code})

@@ -56,11 +56,12 @@ header li a {
            <li><a class="active" href="{% url 'home' %}">Orders Report</a></li>
            <li><a href="{% url 'myforms' %}">Create Report</a></li>
            <li><a href="{% url 'manufacturer_list' %}">View Reports</a></li>
+           <li><a href="{% url 'submitted_report' %}">Submitted Reports</a></li>
            {% if user.is_authenticated %}
            <li><a href="{% url 'logout' %}">Logout</a></li>
            {% else %}
            <li><a href="{% url 'login' %}">Login</a><li>
-           {% endif %}   
+           {% endif %}
        </ul>
    </nav>
 </header>
