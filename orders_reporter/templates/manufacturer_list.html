@@ -10,7 +10,7 @@
     font-family: Arial, Helvetica, sans-serif;
     width: 100%;
     border-collapse: collapse;
- } 
+ }
  th, th {
     border: 1px solid #dddddd;
     text-align: left;
@@ -22,20 +22,22 @@
 </style>
 <table>
    <tr>
-               <th>Manufacturer</th>
+               <th>Order</th>
                <th>Date Created</th>
+               <th>Location</th>
    </tr>
                <tr>
-{% for manufacturer in manufacturers %} 
-                <td><a href="{% url 'manufacturer_detail' manufacturer.pk %}">{{ manufacturer.vendor }}</a></td>
+{% for manufacturer in manufacturers %}
+                <td><a href="{% url 'manufacturer_detail' manufacturer.pk %}">{{ manufacturer.order_number }}</a></td>
                 <td>{{ manufacturer.date_added|date:'M d,Y H:i' }}</td>
+                <td>{{ manufacturer.location }}</td>
                 </tr>
-                {% empty %} 
+                {% empty %}
 
                 <h2>The list is empty, create a new orders report</2>
 
 {% endfor %}
-        
+
 {% endblock content %}
 
 

@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
- 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 MEDIA_ROOT = os.path.join(BASE_DIR, 'barcodes')
@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'cg#p$g+j9tax!#a3cup@1$8obt2_+&
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = False
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
-ALLOWED_HOSTS = ['127.0.0.1','172.16.224.120 ','*.fly.dev']
+ALLOWED_HOSTS = ['cryptoon.pythonanywhere.com', '127.0.0.1']
 
 
 # Application definition
@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles', 
+    'django.contrib.staticfiles',
     'bootstrap3',
     'orders_reporter',
     'crispy_forms',
@@ -74,7 +74,7 @@ TEMPLATES = [
 
 #heroku settings
 # if os.getcwd() == '/app':
-#     import dj_database_url 
+#     import dj_database_url
 #     DATABASES = {
 #             'default':dj_database_url.config(default='postgres://localhost')
 
@@ -128,7 +128,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/New_York'
 
 USE_I18N = True
 
