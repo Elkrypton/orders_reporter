@@ -62,7 +62,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgments
 
-- Special thanks to [Django](https://www.djangoproject.com/) for providing a powerful web framework.
 - QR code generation functionality powered by [qrcode library](https://github.com/lincolnloop/python-qrcode).
 
 ## Author
