@@ -80,4 +80,4 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 ## Disclaimer
 
 This application is provided as-is, without any warranty or support. Use at your own risk.
-![image](https://github.com/Elkrypton/orders_reporter/assets/36573322/2a07d4d8-5cea-4b7f-9b94-402514642050)
+
